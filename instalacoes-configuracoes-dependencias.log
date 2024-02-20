@@ -1,0 +1,93 @@
+
+
+Diretório: E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF
+
+
+Mode                 LastWriteTime         Length Name                                                                                                     
+----                 -------------         ------ ----                                                                                                     
+-a----        20/02/2024     11:01            416 app.js                                                                                                   
+
+
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> ls
+
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        20/02/2024     11:03                controller
+d-----        20/02/2024     11:03                model
+-a----        20/02/2024     14:08            682 app.js
+
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> nmp install express --save
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> npm install express --save
+
+added 64 packages in 14s
+
+12 packages are looking for funding
+  run `npm fund` for details
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> npm install cors --save
+
+added 2 packages, and audited 67 packages in 2s
+
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> npm install body-parser --save
+
+added 2 packages, changed 2 packages, and audited 69 packages in 2s
+
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> npm install prisma --save
+
+added 6 packages, and audited 75 packages in 19s
+
+12 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> npx prisma init
+
+  You can now open it in your favorite editor.
+
+Next steps:
+1. Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started    
+2. Set the provider of the datasource block in schema.prisma to match your database: postgresql, mysql, sqlite, sqlserver, mongodb or cockroachdb.
+3. Run prisma db pull to turn your database schema into a Prisma schema.
+4. Run prisma generate to generate the Prisma Client. You can then start querying your database.
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF> npx prisma migrate dev 
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": MySQL database "db_contatos_fecaf" at "localhost:3306"
+
+Drift detected: Your database schema is not in sync with your migration history.
+
+The following is a summary of the differences between the expected database schema given your migrations files, and the actual schema of the database.     
+
+It should be understood as the set of changes to get from the expected schema to the actual schema.
+
+If you are running this the first time on an existing database, please make sure to read this documentation page:
+https://www.prisma.io/docs/guides/database/developing-with-prisma-migrate/troubleshooting-development
+
+[+] Added tables
+  - tbl_contatos
+
+√ We need to reset the MySQL database "db_contatos_fecaf" at "localhost:3306"
+Do you want to continue? All data will be lost. ... yes
+
+√ Enter a name for the new migration: ... yes
+Applying migration `20240220175823_yes`
+
+The following migration(s) have been created and applied from new schema changes:
+
+migrations/
+  └─ 20240220175823_yes/
+    └─ migration.sql
+
+Your database is now in sync with your schema.
+
+✔ Generated Prisma Client (v5.10.0) to .\node_modules\@prisma\client in 154ms
+
+
+PS E:\POS GRADUAÇÃO  UNIFECAF\grade nova\PROGRAMACAO BACK-END\PROJETO_CONTATOS_FECAF>
