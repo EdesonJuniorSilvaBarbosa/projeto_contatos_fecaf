@@ -45,11 +45,22 @@ app.use((request, response, next) => {
     next()
 }) 
 
-// EndPoints
+const controllerContatos = require('./controller/controllerContato.js')
 
+// EndPoints: GET retornar todos os contatos do Banco de dados
+app.get('/v1/fecaf/contatos', cors(), async function(request, response, next){
+    
+    let dadosContatos = await controllerContatos.getContatos();
 
+    if(dadosContatos){
+        response.status(200);
+        response.json(dadosContatos);
+    }else{
+        response.status(404);
+    }
+})
 
-// executa a API
+// Executa a API
 app.listen(8080, function(){
     console.log('API funcionando e aguardando novas requisições...')
 })

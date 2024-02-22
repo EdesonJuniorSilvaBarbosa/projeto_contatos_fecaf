@@ -16,6 +16,12 @@ const selectAllContatos = async function(){
     
     let sql = 'select * from tbl_contatos';
 
+    //$queryRawUnsafe() => é quando temos o script sql numa variável para que haja a interpretação
+    // exemplo: let rsContatos = await prisma.$queryRawUnsafe(sql);
+
+    //$queryRaw() => quando mandamos o script direto
+    // exemplo: " let rsContatos = await prisma.$queryRaw('select * from tbl_contatos'); " 
+
     // Executa no banco de dados o script sql de select
     let rsContatos = await prisma.$queryRawUnsafe(sql);
 
