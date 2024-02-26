@@ -1,0 +1,119 @@
+{
+	"info": {
+		"_postman_id": "d34f9520-9849-4564-b9c7-242d48f849fb",
+		"name": "API - FECAF CONTATOS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33210602"
+	},
+	"item": [
+		{
+			"name": "CONTATOS",
+			"item": [
+				{
+					"name": "Retorna Contatos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/fecaf/contatos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"fecaf",
+								"contatos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Inserir Novo Contatos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Ricardo Santos\",\r\n    \"cpf\": \"6004567899\",\r\n    \"email\": \"ric@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/fecaf/contato",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"fecaf",
+								"contato"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir Contatos",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/fecaf/contato/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"fecaf",
+								"contato",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Atualizar Contatos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Ricardo Santos Silva\",\r\n    \"cpf\": \"6004567899\",\r\n    \"email\": \"ricardo@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/fecaf/contato/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"fecaf",
+								"contato",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

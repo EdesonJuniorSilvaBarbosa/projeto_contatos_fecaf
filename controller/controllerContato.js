@@ -80,8 +80,6 @@ const setDeleteContatos = async function(id){
     }
 }
 
-
-
 module.exports = {
     getContatos,
     setNewContatos,
