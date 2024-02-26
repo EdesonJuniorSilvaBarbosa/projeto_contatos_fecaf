@@ -77,6 +77,22 @@ app.post('/v1/fecaf/contato', cors(), bodyParserJSON, async function(request, re
     }
 })
 
+// EndPoints: PUT atualiza contato no Banco de dados
+app.put('/v1/fecaf/contato/:id', cors(), bodyParserJSON, async function(request, response, next){
+    // recebe dados do body e o id do registro
+    let dados = request.body;
+    let id = request.params.id;
+
+    let result = controllerContatos.setUpdateContatos(dados, id)
+
+    if(result){
+        response.status(200);
+        response.json({"message":"Registro atualizado com sucesso."});
+    }else{
+        response.status(404);
+    }
+})
+
 // Executa a API
 app.listen(8080, function(){
     console.log('API funcionando e aguardando novas requisições...')

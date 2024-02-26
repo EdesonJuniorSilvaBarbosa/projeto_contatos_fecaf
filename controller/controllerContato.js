@@ -45,7 +45,28 @@ const setNewContatos = async function(contato){
     }
 }
 
+// atualizar um registro do Banco de dados
+const setUpdateContatos = async function(contato, idContato){
+    // validação de dados
+    if(contato.nome == '' || contato.nome == undefined || contato.cpf == '' || contato.cpf == undefined  || contato.email == '' || contato.email == undefined || idContato == '' || idContato == undefined){
+        return false;
+    }else{
+
+        // Adiciona o id no JSON de contato
+        contato.id = idContato;
+
+        // encaminha os dados para a atualização no banco de dados
+        let result = contatoDao.updatetContatos(contato);
+        if(result){
+            return true;
+        }else{
+            return false;
+        } 
+    }
+}
+
 module.exports = {
     getContatos,
-    setNewContatos
+    setNewContatos,
+    setUpdateContatos
 }

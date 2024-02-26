@@ -32,6 +32,7 @@ const selectAllContatos = async function(){
     }
 }
 
+// Função de inserir dados no banco
 const insertContatos = async function(contato){
     let sql = `insert into tbl_contatos (nome, cpf, email) values ('${contato.nome}', '${contato.cpf}', '${contato.email}')`;
 
@@ -47,7 +48,21 @@ const insertContatos = async function(contato){
     }
 }
 
+// Função de atualizar dados no banco
+const updatetContatos = async function(contato){
+    let sql = `update tbl_contatos set nome = '${contato.nome}', cpf = '${contato.cpf}', email = '${contato.email}' where id = ${contato.id}`;
+
+    let result = await prisma.$executeRawUnsafe(sql);
+
+    if(result){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 module.exports = { 
     selectAllContatos,
-    insertContatos
+    insertContatos,
+    updatetContatos
 };
