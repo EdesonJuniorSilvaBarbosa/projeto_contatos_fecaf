@@ -65,8 +65,26 @@ const setUpdateContatos = async function(contato, idContato){
     }
 }
 
+// deleta um registro do Banco de dados
+const setDeleteContatos = async function(id){
+
+    if(id == '' || id == undefined){
+        return false;
+    }else{
+        let result = contatoDao.deleteContatos(id);
+
+        if(result)
+            return true;
+        else
+            return false;
+    }
+}
+
+
+
 module.exports = {
     getContatos,
     setNewContatos,
-    setUpdateContatos
+    setUpdateContatos,
+    setDeleteContatos
 }

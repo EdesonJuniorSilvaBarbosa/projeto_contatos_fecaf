@@ -93,6 +93,18 @@ app.put('/v1/fecaf/contato/:id', cors(), bodyParserJSON, async function(request,
     }
 })
 
+// EndPoints: DELETE excluir contatos no Banco de dados
+app.delete('/v1/fecaf/contato/:id', cors(), async function(request, response, next){
+    let id = request.params.id;
+    let result = controllerContatos.setDeleteContatos(id)
+
+    if(result){
+        response.status(204);
+        response.json({"message": "Registro excluído com sucesso."})
+    }else
+        response.status(404);
+})
+
 // Executa a API
 app.listen(8080, function(){
     console.log('API funcionando e aguardando novas requisições...')

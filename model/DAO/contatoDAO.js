@@ -61,8 +61,22 @@ const updatetContatos = async function(contato){
     }
 }
 
+// Função de deletar dados no banco
+const deleteContatos = async function(id){
+    let sql = `delete from tbl_contatos where id = ${id}`;
+
+    let result = await prisma.$executeRawUnsafe(sql);
+
+    if(result){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 module.exports = { 
     selectAllContatos,
     insertContatos,
-    updatetContatos
+    updatetContatos,
+    deleteContatos
 };
