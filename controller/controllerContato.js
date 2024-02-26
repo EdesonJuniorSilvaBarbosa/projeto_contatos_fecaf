@@ -29,6 +29,23 @@ const getContatos = async function(){
     }
 }
 
+// inserir um novo contato no Banco de dados
+const setNewContatos = async function(contato){
+    // validação de dados
+    if(contato.nome == '' || contato.nome == undefined || contato.cpf == '' || contato.cpf == undefined  || contato.email == '' || contato.email == undefined){
+        return false;
+    }else{
+        // encaminha os dados para a inserção no banco de dados
+        let result = contatoDao.insertContatos(contato);
+        if(result){
+            return true;
+        }else{
+            return false;
+        } 
+    }
+}
+
 module.exports = {
-    getContatos
+    getContatos,
+    setNewContatos
 }

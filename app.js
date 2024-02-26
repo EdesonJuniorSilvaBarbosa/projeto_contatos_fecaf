@@ -26,9 +26,12 @@
  ****************************************************************/
 
 // Import das dependências
-const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+
+// Converte a chegada dos dados em formato JSON 
+const bodyParserJSON = bodyParser.json();
 
 // Criando um objeto do tipo express
 const app = express()
@@ -55,6 +58,20 @@ app.get('/v1/fecaf/contatos', cors(), async function(request, response, next){
     if(dadosContatos){
         response.status(200);
         response.json(dadosContatos);
+    }else{
+        response.status(404);
+    }
+})
+
+// EndPoints: POST inserir novo contato no Banco de dados
+app.post('/v1/fecaf/contato', cors(), bodyParserJSON, async function(request, response, next){
+    let dados = request.body;
+
+    let result = controllerContatos.setNewContatos(dados)
+
+    if(result){
+        response.status(201);
+        response.json('{"message":"Registro inserido com sucesso."}');
     }else{
         response.status(404);
     }

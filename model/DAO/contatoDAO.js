@@ -32,6 +32,22 @@ const selectAllContatos = async function(){
     }
 }
 
+const insertContatos = async function(contato){
+    let sql = `insert into tbl_contatos (nome, cpf, email) values ('${contato.nome}', '${contato.cpf}', '${contato.email}')`;
+
+    //executeRawUnsafe
+    //executeRaw
+
+    let result = await prisma.$executeRawUnsafe(sql);
+
+    if(result){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 module.exports = { 
-    selectAllContatos
+    selectAllContatos,
+    insertContatos
 };
