@@ -29,6 +29,26 @@ const getContatos = async function(){
     }
 }
 
+// retorna dados do banco de dados através de filtros por nome do contato
+const getContatosByName = async function(nomeContato){
+    
+    // cria um objeto do tipo Json
+    let jsonContatos = {};
+
+    // solicita os dados do Banco de dados na model
+    let dadosContatos = await contatoDao.selectByNameContato(nomeContato);
+
+    // Valida o retorno dos dados
+    if(dadosContatos){
+        jsonContatos.count = dadosContatos.length;
+        jsonContatos.contatos = dadosContatos;
+
+        return jsonContatos
+    }else{
+        return false;
+    }
+}
+
 // inserir um novo contato no Banco de dados
 const setNewContatos = async function(contato){
     // validação de dados
@@ -84,5 +104,6 @@ module.exports = {
     getContatos,
     setNewContatos,
     setUpdateContatos,
-    setDeleteContatos
+    setDeleteContatos,
+    getContatosByName
 }

@@ -32,6 +32,21 @@ const selectAllContatos = async function(){
     }
 }
 
+// Função para fazer filtros no banco de  dados
+const selectByNameContato = async function(nomeContato){
+    
+    let sql = `select * from tbl_contatos where nome like '%${nomeContato}%' `;
+
+    // Executa no banco de dados o script sql de select
+    let rsContatos = await prisma.$queryRawUnsafe(sql);
+
+    if(rsContatos.length > 0){
+        return rsContatos
+    }else{
+        return false
+    }
+}
+
 // Função de inserir dados no banco
 const insertContatos = async function(contato){
     let sql = `insert into tbl_contatos (nome, cpf, email) values ('${contato.nome}', '${contato.cpf}', '${contato.email}')`;
@@ -78,5 +93,6 @@ module.exports = {
     selectAllContatos,
     insertContatos,
     updatetContatos,
-    deleteContatos
+    deleteContatos,
+    selectByNameContato
 };
